@@ -18,6 +18,15 @@ body {
 
 /* =================== Common  ===================*/
 
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+/* Lúc này .footer-form__submit sẽ có thể kế thừa font từ cha nó là .footer . Nếu không khai báo inherit nó sẽ có font là Ariel */
+
 .container {
   width: 1170px;
   margin: 0 auto;
@@ -585,7 +594,6 @@ a {
 
 .blog {
   padding: 85px;
-  background-color: #fff;
 }
 
 .blog__inner {
@@ -704,14 +712,16 @@ a {
 /* =================== Appointment  ===================*/
 .appointment {
   height: 427px;
-  margin: 85px 0;
+  /* margin: 85px 0; */
+  /* Nhằm tránh margin-bottom bị collapse với khối bên dưới ta sửa lại phần margin như sau */
+  margin-top: 85px;
 }
 
 .appointment__inner {
   background: #f6fbff;
   padding: 100px 178px;
   text-align: center;
-  /* Lưu ý không set height */
+  /* height: 452px; */
 }
 
 .appointment__heading::after {
@@ -738,3 +748,155 @@ a {
 .appointment__btn {
   margin-top: 38px;
 }
+
+/* =================== Footer  ===================*/
+/* Lưu ý: Đã sửa lại thành "margin-top:85px" thay cho "margin: 85px 0;" ở .appointment bên trên rồi */
+/* Do đó ta set margin của .footer = 170px cho giống với thiết kế */
+
+.footer {
+  margin-top: 170px;
+  /* Bản chất của thẻ section là chiếm hết chiều ngang của webpage do đó khi cần giới hạn background-color ta set background-color ở thẻ con trực tiếp của nó VD: .blog__inner, .footer__inner... */
+  /* Hoặc set margin-left và margin-right >= 100px (Đoạn này sai sai cần xem xét lại) sẽ giới hạn được background-color vừa với khung chứa  */
+  padding-top: 100px;
+  background: #10375c;
+  font-family: "Open Sans", sans-serif;
+  /* Viết font-family ở thẻ cha để tất cả thẻ con sẽ thừa kế font Open-sans */
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr 0.4fr 1fr;
+  column-gap: 78px;
+  /* column-gap: 78px; làm cho .footer__link dài bị xuống hàng (chiếm 2 hàng) */
+  /* => Dùng white-space: nowrap; ở .footer__link không xuống hàng (ép text thành 1 hàng) */
+}
+
+.footer__desc {
+  margin-top: 21px;
+  color: #a9b3bb;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  /* 175% */
+}
+
+.footer__heading {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.75;
+  /* 175% */
+}
+
+.footer__list {
+  margin: 20px 0 28px;
+}
+
+.footer__link {
+  color: #a9b3bb;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  /* 185.714% */
+  white-space: nowrap;
+  /* column-gap: 78px; làm cho .footer__link dài bị xuống hàng (chiếm 2 hàng) */
+  /* => Dùng white-space: nowrap; ở .footer__link không xuống hàng (ép text thành 1 hàng) */
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+.footer__item {
+  margin-bottom: 10px;
+}
+
+.footer__social {
+  /* margin-top: 20px; */
+  margin: 20px 0 28px;
+  display: flex;
+  column-gap: 10px;
+}
+
+.footer__social-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #2e80ce;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.25s;
+}
+
+.footer__social-btn:hover {
+  background-color: #2e80ce;
+  color: #fff;
+}
+
+.footer-form {
+  display: flex;
+  column-gap: 12px;
+  margin-top: 10px;
+}
+
+.footer-form__input {
+  width: 212px;
+  height: 46px;
+  border-radius: 4px;
+  border: 1px solid #406181;
+  background: transparent;
+  outline: none;
+  color: #fff;
+}
+
+.footer-form__input::placeholder {
+  color: #9ca8b1;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  /* 185.714% */
+}
+
+.footer-form__submit {
+  width: 108px;
+  height: 46px;
+  border-radius: 4px;
+  background: #2e80ce;
+
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.86;
+  /* 185.714% */
+
+  border: none;
+}
+
+.footer-form__submit:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+/* Lúc này kiểm tra lại font chữ của Button thì font-family không phải là "Open-sans" mà là Arial @@, xem video bài 95.12 để sửa lại
+/* =================== Common  ===================
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+}
+/* Lúc này .footer-form__submit sẽ có thể kế thừa font từ cha nó là .footer . Nếu không khai báo inherit nó sẽ có font là Ariel */
+
+.footer__copyright {
+  border-top: 1px solid #406181;
+}
+
+.footer__copyright-text {
+  color: #aab3ba;
+  text-align: center;
+  font-size: 1.4rem;
+  line-height: 1.86;
+  /* 185.714% */
+  padding: 28px 0 42px;
+}
+/* Bỏ độ cao của thẻ body, kiểm tra lại dự án => Hoàn thiện rồi .^-^. */
