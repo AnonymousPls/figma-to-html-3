@@ -367,3 +367,62 @@ a {
   line-height: 1.75;
   /* 175% */
 }
+
+/* =================== How it works ===================*/
+
+.about {
+  /* padding: 170px 0; */
+  /* Phần padding lúc này sẽ dính sát vào khối bên dưới => Dùng padding: 85px 0; + margin-top: 85px; Khối sau (dưới) cũng sẽ set padding: 85px 0;*/
+  /* padding: 85px 0; */
+  /* Do .about__img--small có position: absolute; nền cần điều chỉnh lại padding-bottom. Khối sau (dưới) lúc này cũng vẫn sẽ set padding: 85px 0;*/
+  padding: 85px 0 206px;
+  margin-top: 85px;
+  /* background-color: yellow; */
+}
+
+.about__img {
+  position: relative;
+}
+
+.about__img--large {
+  width: 512px;
+  height: 370px;
+  border-radius: 6px;
+  box-shadow: 0px 14px 28px 0px rgba(0, 0, 0, 0.07);
+  object-fit: cover;
+  display: flex;
+  /* Xử lí phần dư ra phía dưới của thẻ inline ở đây là thẻ img */
+}
+.about__img--small {
+  width: 332px;
+  height: 370px;
+  border-radius: 6px;
+  object-fit: cover;
+  position: absolute;
+  top: 121px;
+  left: 238px;
+}
+
+.about-row {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+}
+
+.about__media {
+  width: 49%;
+  /* (512+58)/1170 */
+}
+
+.about-content {
+  width: 51%;
+  /* Hoặc dùng flex: 1 để khối chiếm hết phần còn lại */
+  /* flex: 1; */
+  width: 40%;
+  /* 470/1170, do thiết kế nên ta set width lại theo thiết kế nếu không thì hiển thị khối bên phải sẽ bị sai */
+  margin-top: 82px;
+}
+
+.about-content__btn {
+  margin-top: 38px;
+}
