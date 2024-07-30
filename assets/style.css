@@ -395,7 +395,7 @@ a {
   /* 175% */
 }
 
-/* =================== How it works ===================*/
+/* =================== About ===================*/
 
 .about {
   /* padding: 170px 0; */
@@ -699,4 +699,42 @@ a {
 
 .blog-item__more:hover {
   color: #2e80ce;
+}
+
+/* =================== Appointment  ===================*/
+.appointment {
+  height: 427px;
+  margin: 85px 0;
+}
+
+.appointment__inner {
+  background: #f6fbff;
+  padding: 100px 178px;
+  text-align: center;
+  /* Lưu ý không set height */
+}
+
+.appointment__heading::after {
+  content: "";
+  display: block;
+  width: 136px;
+  height: 2px;
+  background: #2e80ce;
+  margin: 18px auto 0;
+}
+
+.appointment__desc {
+  margin: 18px auto 0;
+  max-width: 617px;
+  color: #575f66;
+  text-align: center;
+  font-family: Sora;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px; /* 175% */
+}
+
+.appointment__btn {
+  margin-top: 38px;
 }
