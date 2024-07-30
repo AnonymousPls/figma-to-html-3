@@ -95,13 +95,16 @@ a {
   content: "";
   display: inline-block;
   /* Cho phép nhận kích thước */
+  /* mặc định ::before có display là inline, mà inline thì không set kích thước được nên phải chuyển sang block hoặc inline-block. Nhưng block thì nó xuống hàng nên dùng inline-block */
   width: 6px;
   height: 6px;
   background: #ffffff;
   border-radius: 50%;
+
   position: relative;
-  right: 8px;
   top: -3px;
+  right: 8px;
+  /* Hoặc dùng transform: translate(-8px, -50%) để thay thế*/
 }
 
 .header__action--signup {
@@ -112,4 +115,80 @@ a {
 
 .header__action--login {
   margin-right: 7px;
+}
+
+/* =================== Hero  ===================*/
+
+.hero {
+  display: flex;
+  padding-top: 76px;
+  align-items: center;
+}
+
+.hero__content {
+  width: 44%;
+}
+
+.hero__media {
+  flex: 1;
+  /* Chiếm hết khoảng không gian còn lại */
+  /* width: 56%; */
+}
+
+.hero__heading {
+  color: #fff;
+  font-size: 7rem;
+  font-weight: 600;
+  line-height: 1.14x;
+  /* 114.286% */
+  letter-spacing: -1.4px;
+}
+
+.hero__desc {
+  color: #c9d2da;
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.67;
+  /* 166.667% */
+
+  margin-top: 22px;
+}
+
+.hero__row {
+  margin-top: 38px;
+  display: flex;
+  /* Loại bỏ khoảng cách giữa 2 thẻ con là thẻ a và span */
+  align-items: center;
+  column-gap: 38px;
+}
+
+.hero_phone {
+  color: #fff;
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 1.67;
+  /* 166.667% */
+}
+
+.hero__image {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.hero__img {
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.hero__img--large {
+  width: 330px;
+  height: 540px;
+  margin-right: -6px;
+  z-index: 1;
+}
+
+.hero__img--small {
+  width: 210px;
+  height: 410px;
 }
